@@ -66,6 +66,12 @@
                     }
                 }
                 
+                var bodyStyle = window.getComputedStyle(document.body, null);
+                if (bodyStyle.position == 'relative') {
+                    tp.top -= Number.parseInt(bodyStyle.marginTop);
+                    tp.left -= Number.parseInt(bodyStyle.marginLeft);
+                }
+                
                 $tip.css(tp).addClass('tipsy-' + gravity);
                 $tip.find('.tipsy-arrow')[0].className = 'tipsy-arrow tipsy-arrow-' + gravity.charAt(0);
                 if (this.options.className) {
